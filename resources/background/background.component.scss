@@ -1,0 +1,13 @@
+itu-background {
+  overflow: hidden;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .ship {
+      opacity: 0;
+    }
+  }
+}
