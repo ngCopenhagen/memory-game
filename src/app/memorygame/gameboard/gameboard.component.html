@@ -1,5 +1,5 @@
 <mat-grid-list cols="4" rowHeight="1:1" gutterSize="8px">
-  <mat-grid-tile *ngFor="let card of memorygame?.deck">
+  <mat-grid-tile *ngFor="let card of deck">
     <itu-card [card]="card" (select)="selectCard(card)"></itu-card>
   </mat-grid-tile>
 </mat-grid-list>

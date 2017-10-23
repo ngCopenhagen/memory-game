@@ -1,21 +1,20 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Card } from '../models/card';
-import { Memorygame } from '../game';
 import { Subscription } from 'rxjs/Subscription';
-import { GameService } from '../game.service';
+import { Card } from './models/card';
+import { GameService } from './game.service';
+import { Memorygame } from './game';
 
 @Component({
-  selector: 'itu-gameboard',
-  templateUrl: './gameboard.component.html',
-  styleUrls: ['./gameboard.component.scss']
+  selector: 'itu-memorygame',
+  templateUrl: './memorygame.component.html',
+  styleUrls: ['./memorygame.component.scss']
 })
-export class GameboardComponent implements OnInit, OnDestroy {
-
+export class MemorygameComponent implements OnInit, OnDestroy {
   private gameSubscription: Subscription;
 
   public memorygame: Memorygame;
 
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService) {}
 
   ngOnInit() {
     this.startGame();

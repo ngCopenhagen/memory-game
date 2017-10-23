@@ -2,27 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { GameboardComponent } from './gameboard/gameboard.component';
-import { CardComponent } from './gameboard/card/card.component';
-import { GameService } from './game.service';
-import { HttpClientModule } from '@angular/common/http';
-
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatGridListModule } from '@angular/material';
+import { MemorygameModule } from './memorygame/memorygame.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    GameboardComponent,
-    CardComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatGridListModule
+    MemorygameModule
   ],
-  providers: [GameService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

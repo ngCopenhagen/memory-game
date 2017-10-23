@@ -24,7 +24,7 @@ $height: $width;
 }
 
 .front, .back {
-  background: url('../../../assets/shield.svg') no-repeat;
+  background: url('../../../../assets/shield.svg') no-repeat;
   backface-visibility: hidden;
   position: absolute;
   top: 0;
