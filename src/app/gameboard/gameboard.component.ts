@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Card } from '../models/card';
+import { Memorygame } from '../game';
 
 @Component({
   selector: 'itu-gameboard',
@@ -19,9 +20,19 @@ export class GameboardComponent implements OnInit {
     {"name": "Tongue", "image": "../../../../assets/viking_tongue.svg", "flipped": false}
   ];
 
+  public memorygame: Memorygame;
+
   constructor() { }
 
   ngOnInit() {
+    this.startGame();
   }
 
+  startGame(): void {
+    this.memorygame = new Memorygame(this.deck);
+  }
+
+  selectCard(payload: Card) {
+    this.memorygame.selectCard(payload);
+  }
 }

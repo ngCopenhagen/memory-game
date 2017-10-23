@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Card } from '../../models/card';
 
 @Component({
@@ -16,5 +16,14 @@ export class CardComponent {
   @Input()
   set card(card: Card) {
     this._card = card;
+  }
+
+  @Output() select = new EventEmitter();
+
+  onClick() {
+    if (this.card.flipped) {
+      return;
+    }
+    this.select.emit(this.card);
   }
 }

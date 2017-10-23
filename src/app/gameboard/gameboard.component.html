@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let card of deck">
-    <itu-card [card]="card"></itu-card>
+  <li *ngFor="let card of memorygame.deck">
+    <itu-card [card]="card" (select)="selectCard(card)"></itu-card>
   </li>
 </ul>
