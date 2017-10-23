@@ -7,6 +7,9 @@ import { CardComponent } from './gameboard/card/card.component';
 import { GameService } from './game.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatGridListModule } from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatGridListModule
   ],
   providers: [GameService],
   bootstrap: [AppComponent]
