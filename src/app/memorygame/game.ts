@@ -48,20 +48,10 @@ export class Memorygame implements Memorygame {
 
   createTimer$(): Observable<string> {
     return TimerObservable.create(1, 1000).map(time => {
-      const d = new Date(time);
-      const h = this.addZero(d.getHours(), 2);
-      const m = this.addZero(d.getMinutes(), 2);
-      const s = this.addZero(d.getSeconds(), 2);
-      const ms = this.addZero(d.getMilliseconds(), 2);
-      return m + ':' + s + ':' + ms
+      let m = Math.floor(time / 60);
+      let s = Math.floor( time - (m * 60) );
+      return `${m < 10 ? '0' + m : m}:${s < 10 ? '0' + s : s}`;
     });
-  }
-
-  addZero(x, n) {
-    while (x.toString().length < n) {
-      x = '0' + x;
-    }
-    return x;
   }
 
   selectCard(card: Card): void {
