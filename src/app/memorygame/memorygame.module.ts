@@ -10,6 +10,7 @@ import { CardComponent } from './gameboard/card/card.component';
 
 import { GameService } from './game.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SoundService } from './sound.service';
 
 @NgModule({
   imports: [
@@ -25,6 +26,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     DashboardComponent
   ],
   exports: [MemorygameComponent],
-  providers: [GameService]
+  providers: [GameService, SoundService]
 })
 export class MemorygameModule {}

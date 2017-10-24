@@ -1,3 +1,11 @@
+.dashboard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 h2 {
   font-size: 34px;
   display: flex;
@@ -5,9 +13,16 @@ h2 {
 }
 
 button {
-  position: absolute;
-  top: 40px;
-  left: 40px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+
+  @media screen and (min-width: 768px) {
+    width: auto;
+    top: 50px;
+    left: 50px;
+    bottom: auto;
+  }
 }
 
 .mat-raised-button.mat-primary {

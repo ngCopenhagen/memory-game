@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Card } from './models/card';
 import { GameService } from './game.service';
 import { Memorygame } from './game';
+import { SoundService } from './sound.service';
 
 @Component({
   selector: 'itu-memorygame',
@@ -14,7 +15,7 @@ export class MemorygameComponent implements OnInit, OnDestroy {
 
   public memorygame: Memorygame;
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService, private soundService: SoundService) {}
 
   ngOnInit() {
     this.startGame();
@@ -29,6 +30,7 @@ export class MemorygameComponent implements OnInit, OnDestroy {
   }
 
   selectCard(payload: Card) {
+    this.soundService.playSound();
     this.memorygame.selectCard(payload);
   }
 
