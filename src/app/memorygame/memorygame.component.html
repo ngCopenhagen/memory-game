@@ -1,1 +1,5 @@
+<itu-dashboard [attempts]="memorygame?.attempts"
+               [message]="memorygame?.message"
+               [timer]="memorygame?.timer"
+               (newGame)="startGame()"></itu-dashboard>
 <itu-gameboard class="gameboard" [deck]="memorygame?.deck" (selectedCard)="selectCard($event)"></itu-gameboard>

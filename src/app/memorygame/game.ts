@@ -1,18 +1,20 @@
 import { Card } from './models/card';
+import { Observable } from "rxjs/Observable";
+import {TimerObservable} from 'rxjs/observable/TimerObservable';
+import 'rxjs/add/operator/map';
 
 export interface Memorygame {
   unmatchedPairs: number;
   deck: Array<Card>;
   message: string;
   attempts: number;
-  tick: string;
+  timer: Observable<string>;
   firstPick: Card;
   secondPick: Card;
   complete: boolean;
 }
 
 const MESSAGE_START = 'Click on the first tile to start your game.';
-const MESSAGE_CLICK = 'Click on a tile.';
 const MESSAGE_ONE_MORE = 'Pick one more card.';
 const MESSAGE_MISS = 'Try again.';
 const MESSAGE_MATCH = 'Good job! Keep going.';
@@ -23,7 +25,7 @@ export class Memorygame implements Memorygame {
   public deck: Array<Card>;
   public message: string;
   public attempts: number;
-  public tick: string;
+  public timer: Observable<string>;
   public firstPick: Card;
   public secondPick: Card;
   public complete: boolean;
@@ -41,6 +43,25 @@ export class Memorygame implements Memorygame {
         return x;
       }, [])
     );
+    this.timer = this.createTimer$();
+  }
+
+  createTimer$(): Observable<string> {
+    return TimerObservable.create(1, 1000).map(time => {
+      const d = new Date(time);
+      const h = this.addZero(d.getHours(), 2);
+      const m = this.addZero(d.getMinutes(), 2);
+      const s = this.addZero(d.getSeconds(), 2);
+      const ms = this.addZero(d.getMilliseconds(), 2);
+      return m + ':' + s + ':' + ms
+    });
+  }
+
+  addZero(x, n) {
+    while (x.toString().length < n) {
+      x = '0' + x;
+    }
+    return x;
   }
 
   selectCard(card: Card): void {
