@@ -1,0 +1,49 @@
+$width: 100px;
+$height: $width;
+
+.card-container {
+  perspective: 1000px;
+  margin: 14px;
+}
+
+.card-container.flipped .card {
+  transform: rotateY(180deg);
+}
+
+.card-container,
+.front,
+.back {
+  width: $width;
+  height: $height;
+}
+
+.card {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.front, .back {
+  background: url('../../../../assets/shield.svg') no-repeat;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+
+  img {
+    width: 50%;
+    height: 50%;
+  }
+}
