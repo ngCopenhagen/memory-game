@@ -1,0 +1,30 @@
+.dashboard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+h2 {
+  font-size: 34px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+
+  @media screen and (min-width: 768px) {
+    width: auto;
+    top: 50px;
+    left: 50px;
+    bottom: auto;
+  }
+}
+
+.mat-raised-button.mat-primary {
+  background-color: #856042;
+}
